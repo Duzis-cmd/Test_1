@@ -10,18 +10,425 @@
 
     <link rel="stylesheet" type="text/css" href="/styles/index.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-
+    
     <title>This is the end</title>
 </head>
+
 <body>
     <header>
-        <nav>
+        <!--------------Navbar------------------>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="Index.html"><i class="fa fa-microchip" aria-hidden="true"></i></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="Index.html">Home<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="Index.html">Main</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" data-toggle="modal" href="#registerModal">Register</a>
+                    </li>
+                </ul>
+            </div>
         </nav>
     </header>
     <main>
-        <h1>Hello, world!</h1>
+        <!--------------Carousel------------------>
+        <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="img/carousel-1.jpg" alt="sli_1">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="img/carousel-2.jpg" alt="sli_2">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="img/carousel-3.jpg" alt="sli_3">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+
+        <!--------------RegisterModal------------->
+        <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Register</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">@</div>
+                                        <div class="col-xs-2">
+                                            <input type="text" class="form-control" id="recipient-name" placeholder="Username">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <select class="custom-select mr-sm-2" id="inlineFormGenderSelect">
+                                        <option selected>Choose your gender</option>
+                                        <option value="1">Male</option>
+                                        <option value="2">Female</option>
+                                        <option value="3">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <input type="text" class="form-control" id="recipient-password" placeholder="Password">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <input type="text" class="form-control" id="recipient-email" placeholder="Email@example.com">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <input type="text" class="form-control" id="recipient-rePassword" placeholder="Repeat password">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <input type="text" class="form-control" id="recipient-phone" placeholder="Phone">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <input type="text" class="form-control" id="recipient-phone" placeholder="Full name">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <textarea id="comment" name="comment" class="form-control"></textarea>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="agreeCheck">
+                            <label class="form-check-label" for="agreeCheck">I agree with terms and conditions</label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Register</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--------------Comments-Modal------------>
+        <div class="modal fade" id="commentsModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h3>Event details</h3>
+                            </div>
+
+                            <div id="carouselIndicators1" class="carousel slide" data-ride="carousel">
+                                <ol class="carousel-indicators">
+                                    <li data-target="#carouselIndicators1" data-slide-to="0" class="active"></li>
+                                    <li data-target="#carouselIndicators1" data-slide-to="1"></li>
+                                    <li data-target="#carouselIndicators1" data-slide-to="2"></li>
+                                </ol>
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img class="d-block w-100" src="img/carousel-1.jpg" alt="sli_1">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img class="d-block w-100" src="img/carousel-2.jpg" alt="sli_2">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img class="d-block w-100" src="img/carousel-3.jpg" alt="sli_3">
+                                    </div>
+                                </div>
+                                <a class="carousel-control-prev" href="#carouselIndicators1" role="button" data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" href="#carouselIndicators1" role="button" data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p><b>Importance:</b> Very high</p>
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p><b>When:</b> Very soon</p>
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p><b>Where:</b> TSU</p>
+                                <hr>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h3><b>Comments:</b></h3>
+                            </div>
+                            <div class="media">
+                                <div class="row">
+                                    <div class="col-md-12 m-2">
+                                        <div class="media mt-3 mr-3">
+                                            <img class="mr-3" src="img/cat4.jpg" alt="Generic placeholder image">
+                                            <div class="media-body">
+                                                <h5 class="mt-0">Media heading</h5>
+                                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                                            </div>
+                                        </div>
+                                        <div class="media mt-3 mr-3">
+                                            <img class="mr-3" src="img/cat5.jpg" alt="Generic placeholder image">
+                                            <div class="media-body">
+                                                <h5 class="mt-0">Media heading</h5>
+                                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+
+                                                <div class="media mt-3 mr-3">
+                                                    <a class="pr-3" href="#">
+                                                        <img src="img/cat3.jpg" alt="Generic placeholder image">
+                                                    </a>
+                                                    <div class="media-body">
+                                                        <h5 class="mt-0">Media heading</h5>
+                                                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="text-center">Your bunny wrote</h2>
+
+        <div class="container" id="mainContainer">
+            <div class="cards-container rounded form-row py-3 mb-3">
+                <div class="col-md-12 pagination-wrapper">
+                    <div class="form-row justify-content-end">
+                        <div class="col-md-12 text-md-right">
+                            <nav aria-label="Page navigation">
+                                <ul class="pagination justify-content-md-end">
+                                    <li class="page-item"><a class="page-link text-primary" href="#">Previous</a></li>
+                                    <li class="page-item"><a class="page-link text-primary" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link text-primary" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link text-primary" href="#">3</a></li>
+                                    <li class="page-item"><a class="page-link text-primary" href="#">Next</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 mt-3 mb-3 cards-content-wrapper collapse show">
+                    <div class="row">
+
+                        <div class="col-md-12 col-md-6 col-sm-6 col-lg-4 first-wrapper">
+                            <div class="row"></div>
+                        </div>
+
+                        <div class="col-md-12 col-md-6 col-sm-6 col-lg-4 second-wrapper">
+                            <div class="row"></div>
+                        </div>
+
+                        <div class="col-lg-4 col-xl-4 d-md-none d-sm-none d-none d-lg-block d-xl-block">
+                            <div class="col mb-3">
+                                <img class="card-img" src="img/3-0.png" alt="Image cap">
+                            </div>
+                            <div class="col mb-3">
+                                <img class="card-img" src="img/3-1.jpg" alt="Image cap">
+                            </div>
+                            <div class="col mb-3">
+                                <img class="card-img" src="img/3-2.jpg" alt="Image cap">
+                            </div>
+                            <div class="col mb-3">
+                                <img class="card-img" src="img/3-3.jpg" alt="Image cap">
+                            </div>
+                            <div class="col mb-3">
+                                <img class="card-img" src="img/3-4.jpg" alt="Image cap">
+                            </div>
+                            <div class="col mb-3">
+                                <img class="card-img" src="img/3-5.jpg" alt="Image cap">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-12 pagination-wrapper">
+                    <div class="form-row justify-content-end">
+                        <div class="col-md-12 text-md-right">
+                            <nav aria-label="Page navigation">
+                                <ul class="pagination justify-content-md-end">
+                                    <li class="page-item"><a class="page-link text-primary" href="#">Previous</a></li>
+                                    <li class="page-item"><a class="page-link text-primary" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link text-primary" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link text-primary" href="#">3</a></li>
+                                    <li class="page-item"><a class="page-link text-primary" href="#">Next</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </main>
-    <footer></footer>
+
+    <div class="modal fade" id="newsModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="col-md-12">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h3>Event details</h3>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12  media-title">
+                            
+                        </div>
+                        <div class="col-md-12">
+                            <h4><b>Comments:</b></h4>
+                        </div>
+                        <div class="media">
+                            <div class="row">
+                                <div class="col-md-12 m-2">
+                                    <div class="media mt-3 mr-3">
+                                        <img class="mr-3" src="/img/cat1.jpg" alt="Generic placeholder image">
+                                        <div class="media-body">
+                                            <h5 class="mt-0">Media heading</h5>
+                                            <p class="media-text">They, too, stared longingly at that distant ship upon its high mountain, its metal soperfect it did not rust or age. The cliff groaned. Sim's father lifted his eroded, lifeless face. \"Dawn's coming,\" he said. IIMorning relaxed the mighty granite cliff muscles. It was the time of theavalanche.</p>
+                                        </div>
+                                    </div>
+                                    <div class="media mt-3 mr-3">
+                                        <img class="mr-3" src="/img/cat2.jpg" alt="Generic placeholder image">
+                                        <div class="media-body">
+                                            <h5 class="mt-0">Media heading</h5>
+                                            <p class="media-text">Their agonies filled the cave. They melted like waxen images, their facescollapsed inward on their sharp bones, their teeth protruded. One minute their faceswere mature, fairly smooth, alive, electric. The next minute a desiccation and burningaway of their flesh occurred. Sim thrashed in his mother's grasp. She held him. \"No, no,\" she soothed him,quietly, earnestly, looking to see if this, too, would cause her husband to rise again. With a soft swift padding of naked feet, Sim's father ran across the cave. Sim'smother screamed. Sim felt himself torn loose from her grasp. He fell upon the stones,rolling, shrieking with his new, moist lungs!</p>
+                                            <div class="media mt-3 mr-3">
+                                                <a class="pr-3" href="#">
+                                                    <img src="/img/cat3.jpg" alt="Generic placeholder image">
+                                                </a>
+                                                <div class="media-body">
+                                                    <h5 class="mt-0">Media heading</h5>
+                                                    <p class="media-text">Feed him. Make him grow.\"Sim, and images, out of the terror, floated to him.This was a planet next to the sun. The nights burned with cold, the days were liketorches of fire.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                   
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-none">
+        <!--col1 prefab-->
+        <div id="itemTemplate">
+            <div class="col-md-12 mb-3">
+                <div class="card">
+                    <img class="card-img-top" src="" alt="Card img cap">
+                    <div class="card-body">
+                        <h5 class="card-title"></h5>
+                        <p class="card-text"></p>
+                        <a href="#commentsModal" class="btn btn-primary" data-toggle="modal">
+                            <i class="fas fa-comment-alt mr-2"></i>
+                            <span class="mr-2">4</span>
+                            Read more
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--col2 prefab-->
+        <div id="serviceTemplate">
+            <div class="col-md-12 mb-3">
+                <div class="card">
+                    <div class="card-body" href="#newsModal" data-page data-number data-toggle="modal">
+                        <h5 class="card-title"></h5>
+                        <p class="card-text"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--modal prefab-->
+        <div id="modalTemplate">
+            <h3 class="media-title"></h3>
+        </div>
+    </div>
+
+    <footer>
+        <form>
+            <div class="form-row justify-content-md-center"> 
+                <div class="col-xs-5">
+                    <input type="text" class="form-control" placeholder="Name">
+                </div>
+                <div class="col-md-2">
+                    <input type="text" class="form-control" placeholder="Email@example.com">
+                </div>
+                <button class="btn btn-primary mb-2" data-toggle="modal" href="#registerModal">Register</button>
+            </div>
+            <div class="footer-copyright text-center py-3">
+                © 2019 Copyright:
+                <a href="https://hits.tsu.ru/ru/"> HITs TSU</a>
+            </div>
+        </form>
+    </footer>
+
+
     <!-- Bootstrap JS -->
     <script src="/scripts/vendor.min.js"></script>
     <script src="/scripts/scripts.js"></script>
