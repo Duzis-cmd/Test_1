@@ -1,2 +1,13 @@
 body, html {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.3em;
   height: 100%; }
+
+.container-fluid {
+  margin: 0 auto;
+  float: none;
+  margin-bottom: 10px; }
+
+.nav-link {
+  cursor: auto; }

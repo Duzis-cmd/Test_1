@@ -5,8 +5,8 @@
 };
 
 var ServicesToSell = {
-    titles: ["No web classes this week!", "Random testing tomorrow", "Holiday!", "Finals are coming!", "Web will haunt you...", "Do it yourself!", "Welcoming gift here.", "Go hard, or go home.", "Game of trolls", "Horror in the dorm!"],
-    descriptions: ["The teacher is abscent again", "So random!", "", "Prepare yourself!", "", "We know you can", "Grab while you can!", "No place for loosers", "New entertaining serial for students", "Beware..."]
+    titles: ["No web classes this week!", "Random testing tomorrow", "Holiday!", "Finals are coming!", "Web will haunt you...", "Do it yourself!", "Welcoming gift here.", "Go hard, or go home.", "Game of trolls", "Horror in the dorm!", "Hey 1", "Hey 2"],
+    descriptions: ["The teacher is abscent again", "So random!", "", "Prepare yourself!", "", "We know you can", "Grab while you can!", "No place for loosers", "New entertaining serial for students", "Beware...", "", "lol 1"]
 };
 
 var expandedNews = {
@@ -22,6 +22,8 @@ var expandedNews = {
         "They, too, stared longingly at that distant ship upon its high mountain, its metal soperfect it did not rust or age. The cliff groaned. Sim's father lifted his eroded, lifeless face. \"Dawn's coming,\" he said. IIMorning relaxed the mighty granite cliff muscles. It was the time of theavalanche.",
         "Lyte, rubbing her eyes, came and sat on the floor next to him, resting her headagainst his knee, drowsily. \"I had a dream,\" she said, looking off at something faraway. \"I dreamed I lived in caves in a cliff on a cold-hot planet where people grewold and died in eight days."]
 };
+
+
 
 var ItemsCount = 3;
 var ServiceCount = 12;
@@ -60,16 +62,31 @@ function generateModalList() {
     return { pages: pages };
 }
 
+
+function colorFunc() {
+    
+}
+
 function generateServicesList() {
     var pages = [];
+    var temp;
+    var checked = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+
     for (let i = 0; i < PagesCount; i++) {
         pages[i] = [];
+
         for (let j = 0; j < ServiceCount; j++) {
             let randNum = getRandom(ServicesToSell.titles.length - 1);
+            temp = checked[j];
+            checked[j] = checked[randNum];
+            checked[randNum] = temp;            
+        }
+
+        for (let j = 0; j < ServiceCount; j++) {
             let item = {
-                title: ServicesToSell.titles[randNum],
-                description: ServicesToSell.descriptions[randNum]
-            };
+                title: ServicesToSell.titles[checked[j]],
+                description: ServicesToSell.descriptions[checked[j]]
+            };            
             pages[i].push(item);
         }
     }
@@ -118,7 +135,6 @@ function renderCards(pageNumber) {
 
 var currentPage = 1;
 var numberOfPages = 3;
-var numberOfCards = 8;
 
 function switchPage(event) {
     var pageText = event.target.innerText;
@@ -159,7 +175,7 @@ function switchPage(event) {
         page.collapse('toggle');
     }, 500);
 }
-
+/*
 $('#newsModal').on('show.bs.modal', function () {
     var modal = $(this);
     modalGeneration();
@@ -173,7 +189,7 @@ $('#newsModal').on('show.bs.modal', function () {
     }
     modal.removeAttr("hidden");      
 });
-
+*/
 $(function () {
     generatePageInfo();     
     $(".page-item").on("click", switchPage);
